@@ -1,0 +1,18 @@
+<h1>LISTA DE ACTIVIDADES</h1>
+
+<form (ngSubmit)="onRegister()" #myform="ngForm">
+  <div class="check_list_container">
+    <div id="login_panel">
+      <input type="text" name="name" placeholder=" Escribe tu actividad" required #textInput="ngModel" [(ngModel)]="newActivity" class="imput_1">
+      <!--<p class="message-error" [class.invalid]="textInput.invalid" >Digitar actividad</p>--> <!-- esta etiqueta es para programar mensaje de error en caso de no llevar datos en input-->
+      <button type="submit"(click)="addActivity()" [disabled]="myform.invalid" id="add_button">Añadir</button>
+    </div>
+    <ul class="list_activity">
+      <li *ngFor="let activity of activitys; index as i"  id="worked">
+        {{activity}} <button type="button" (click)="deleteActivity(i)" class="worked_button"></button>
+      </li>
+    </ul>
+  </div>
+  </form>
+
+
